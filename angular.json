@@ -17,12 +17,28 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/properties-app",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "outputHashing": "all",
             "inlineStyleLanguage": "scss",
+            "optimization": false,
+            "sourceMap": true,
+            "buildOptimizer": false,
+            "budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "500kb",
+                "maximumError": "1mb"
+              },
+              {
+                "type": "anyComponentStyle",
+                "maximumWarning": "2kb",
+                "maximumError": "4kb"
+              }
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -33,7 +49,10 @@
             "scripts": []
           },
           "configurations": {
-            "production": {
+            "prod": {
+              "optimization": true,
+            "sourceMap": false,
+            "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -54,28 +73,31 @@
               ],
               "outputHashing": "all"
             },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
             }
-          },
-          "defaultConfiguration": "production"
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "propertiesApp:build",
+            "port": 5200
+          },
           "configurations": {
-            "production": {
-              "browserTarget": "propertiesApp:build:production"
+            "prod": {
+              "browserTarget": "propertiesApp:build:prod"
             },
-            "development": {
-              "browserTarget": "propertiesApp:build:development"
+            "dev": {
+              "browserTarget": "propertiesApp:build:dev"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "dev"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
