@@ -7,6 +7,7 @@ import { AngularFirestore } from "@angular/fire/compat/firestore";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  showSpinner: boolean = false;
   title = 'propertiesApp';
 
   constructor(private fs:AngularFirestore){
@@ -15,7 +16,11 @@ export class AppComponent {
   ngOnInit() {
     this.fs.collection('test').stateChanges().subscribe(data => {
       console.log(data.map((person => person.payload.doc.data())));
-
     })
   }
+
+  onToggleSpinner() : void {
+    this.showSpinner = !this.showSpinner;
+  }
+
 }
