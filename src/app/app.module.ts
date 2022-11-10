@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { IndicatorsModule } from './shared/indicators';
+import { PopupsModule } from './shared/popups';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -36,7 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFirestoreModule,
     AngularFireAuthModule,
     IndicatorsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    PopupsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

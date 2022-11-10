@@ -23,4 +23,7 @@ export class AppComponent {
     this.showSpinner = !this.showSpinner;
   }
 
+  onFilesChanged(urls: string | string[]): void {
+    console.log(urls);
+  }
 }
