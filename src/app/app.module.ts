@@ -20,6 +20,7 @@ import { IndicatorsModule } from './shared/indicators';
 import { PopupsModule } from './shared/popups';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotificationModule } from './services';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireAuthModule,
     IndicatorsModule,
     BrowserAnimationsModule,
-    PopupsModule
+    PopupsModule,
+    NotificationModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

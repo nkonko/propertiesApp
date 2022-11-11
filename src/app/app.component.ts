@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/compat/firestore";
+import { NotificationService } from '@app/services';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent {
   showSpinner: boolean = false;
   title = 'propertiesApp';
 
-  constructor(private fs:AngularFirestore){
+  constructor(private fs:AngularFirestore, private notification: NotificationService){
   }
 
   ngOnInit() {
@@ -25,5 +26,13 @@ export class AppComponent {
 
   onFilesChanged(urls: string | string[]): void {
     console.log(urls);
+  }
+
+  onSuccess() : void {
+    this.notification.success("exito");
+  }
+
+  onError() : void {
+    this.notification.error("exito");
   }
 }
