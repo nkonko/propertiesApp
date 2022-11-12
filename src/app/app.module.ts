@@ -22,9 +22,22 @@ import { PopupsModule } from './shared/popups';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationModule } from './services';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { HeaderComponent } from './components/header/header.component';
+import { MatListModule } from '@angular/material/list';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MenuListComponent } from './components/menu-list/menu-list.component';
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    MenuListComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +53,13 @@ import { NotificationModule } from './services';
     IndicatorsModule,
     BrowserAnimationsModule,
     PopupsModule,
-    NotificationModule.forRoot()
+    NotificationModule.forRoot(),
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

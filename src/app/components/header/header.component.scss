@@ -1,0 +1,17 @@
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color:white;
+  cursor: pointer;
+}
+
+a:hover,
+a:active {
+  text-decoration: none;
+  color:rgb(251, 220, 251);
+}
