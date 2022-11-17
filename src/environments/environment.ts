@@ -14,7 +14,8 @@ export const environment = {
       messagingSenderId: "764941864808",
       appId: "1:764941864808:web:e0615b1033a67b4ff150dd"
     }
-  }
+  },
+  url: 'http://localhost:5000/'
 };
 
 /*
